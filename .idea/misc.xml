@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.10833333333333334" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/activity_main.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/dropdown_item.xml" value="0.1453804347826087" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/fragment_add_medicine.xml" value="0.1" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/fragment_ignored_medicine.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/fragment_taken_medicine.xml" value="0.14945652173913043" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/layout/home.xml" value="0.15353260869565216" />
+        <entry key="..\:/Users/suhai/AndroidStudioProjects/MEDREM/app/src/main/res/menu/nav_menu.xml" value="0.1796875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
