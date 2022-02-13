@@ -5,27 +5,36 @@
     <string name="close">close</string>
     <string-array name="medicineTypes">
         <item>Adhesive</item>
-        <item>capsule</item>
-        <item>cachets</item>
-        <item>cream</item>
-        <item>dragee</item>
-        <item>emulsions</item>
-        <item>pack</item>
-        <item>gel</item>
-        <item>drops</item>
-        <item>inhalation</item>
-        <item>shot</item>
-        <item>lotion</item>
-        <item>measure</item>
-        <item>tablet</item>
-        <item>powder</item>
-        <item>ointment</item>
-        <item>soap</item>
-        <item>sachet</item>
-        <item>unit</item>
-        <item>solution</item>
-        <item>spray</item>
-        <item>suspension</item>
-        <item>syrup</item>
+        <item>Capsule</item>
+        <item>Cachets</item>
+        <item>Cream</item>
+        <item>Dragee</item>
+        <item>Emulsions</item>
+        <item>Pack</item>
+        <item>Gel</item>
+        <item>Drops</item>
+        <item>Inhalation</item>
+        <item>Shot</item>
+        <item>Lotion</item>
+        <item>Tablet</item>
+        <item>Powder</item>
+        <item>Ointment</item>
+        <item>Soap</item>
+        <item>Sachet</item>
+        <item>Solution</item>
+        <item>Spray</item>
+        <item>Suspension</item>
+        <item>Syrup</item>
+    </string-array>
+    <string name="med1">Paracetamol</string>
+
+    <string-array name="Mednames">
+
+    </string-array>
+    <string-array name="MedTypes">
+
+    </string-array>
+    <string-array name="TimeIntervals">
+
     </string-array>
 </resources>

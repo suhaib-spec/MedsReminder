@@ -1,32 +1,22 @@
 package com.example.medrem
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_ignored_medicine.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [Ignored_medicine.newInstance] factory method to
- * create an instance of this fragment.
- */
 class Ignored_medicine : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
@@ -37,23 +27,55 @@ class Ignored_medicine : Fragment() {
         return inflater.inflate(R.layout.fragment_ignored_medicine, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Ignored_medicine.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Ignored_medicine().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var Names : ArrayList<String> = arrayListOf()
+        var Types : ArrayList<String> = arrayListOf()
+        var Intervals : ArrayList<String> = arrayListOf()
+
+        val sharedPref = requireContext().getSharedPreferences("AlarmSet", Context.MODE_PRIVATE)
+        var size = sharedPref.getInt("size",0)
+
+        for (i in 1..size){
+            Names.add(sharedPref.getString(i.toString()+"MedName","") as String)
+            Types.add(sharedPref.getString(i.toString()+"MedType","") as String)
+            var hour = sharedPref.getInt(i.toString()+"Hour",0)
+            var am_pm = "am"
+
+            if (hour > 12){
+                hour -= 12
+                am_pm = "pm"
             }
+
+            var interval =  hour.toString() + ":" + sharedPref.getInt(i.toString()+"Minute",0).toString() + am_pm
+            Intervals.add((interval))
+        }
+
+
+        val adapter = ItemAdapter2(Names,Types,Intervals)
+        homeList1.layoutManager = LinearLayoutManager(context)
+        homeList1.adapter = adapter
     }
+
+    fun Med_taken(position : Int,context: Context){
+        val sharedPref = context.getSharedPreferences("AlarmSet", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+
+        val oldrecieved = sharedPref.getInt("Takensize",0)
+        editor.apply{
+            putInt("Takensize",oldrecieved+1)
+            apply()
+        }
+        val newrecieved = sharedPref.getInt("Takensize",0)
+        editor.apply {
+            putInt(newrecieved.toString() + "TakenHour", sharedPref.getInt(position.toString()+"Hour",0))
+            putInt(newrecieved.toString() + "TakenMinute", sharedPref.getInt(position.toString()+"Minute",0))
+            putString(newrecieved.toString()+"TakenMedName", sharedPref.getString(position.toString()+"MedName","") as String)
+            putString(newrecieved.toString()+"TakenMedType", sharedPref.getString(position.toString()+"MedType","") as String)
+            apply()
+        }
+
+    }
+
 }
